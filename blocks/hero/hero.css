@@ -42,3 +42,8 @@ main .hero img {
 .hero [data-align="center"] {
     text-align: center;
 }
+
+main .hero img {
+    color: black;
+    background-color: yellow;
+}
