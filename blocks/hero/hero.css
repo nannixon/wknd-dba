@@ -43,7 +43,7 @@ main .hero img {
     text-align: center;
 }
 
-main .hero img {
+main .hero h1 {
     color: black;
     background-color: yellow;
 }
