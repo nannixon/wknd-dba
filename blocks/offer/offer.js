@@ -5,16 +5,17 @@ export default async function decorate(block) {
   const persistedquery = '/graphql/execute.json/aem-demo-assets/native-app-adventure';
   // const offerpath = '/content/dam/aem-demo-assets/en/adventures/bali-surf-camp/bali-surf-camp';
   const variationname = 'main';
-  const offerpath = block.querySelector(':scope div:nth-child(1) > div').innerHTML.trim();
+  const url = block.querySelector(':scope div:nth-child(1) > div').innerHTML.trim();
+  //const offerpath = block.querySelector(':scope div:nth-child(1) > div').innerHTML.trim();
   // const offerpath = block.querySelector(':scope div:nth-child(1) > div a').innerHTML.trim();
   // const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML.trim();
 
-  
+  /*
   const url = window.location && window.location.origin && window.location.origin.includes('author')
     ? `${aemauthorurl}${persistedquery};apath=${offerpath};variation=${variationname};ts=${Math.random() * 1000}`
     : `${aempublishurl}${persistedquery};apath=${offerpath};variation=${variationname};ts=${Math.random() * 1000}`;
   const options = { credentials: 'include' };
-
+*/
   console.log(url);
 
   const cfReq = await fetch(url)
@@ -27,7 +28,8 @@ export default async function decorate(block) {
       return offer;
     });
 
-  const itemId = `urn:aemconnection:${offerpath}/jcr:content/data/master`;
+  // const itemId = `urn:aemconnection:${offerpath}/jcr:content/data/master`;
+  const itemId = `${url}/jcr:content/data/master`;
 
   block.innerHTML = `
   <div class='banner-content' data-aue-resource=${itemId} data-aue-type="reference" data-aue-filter="cf">
