@@ -44,7 +44,8 @@ export default async function decorate(block) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(await resp.text(), 'text/html');
         const heroPicture = doc.querySelector('picture');
-        const title = getMetadata('og:title', doc);
+        //const title = getMetadata('og:title', doc);
+        const title = doc.querySelector("meta[property='og:title']").getAttribute("content");
         const card = document.createElement('div');
         card.classList.add('card');
         const h4 = document.createElement('h4');
