@@ -5,6 +5,7 @@ export default async function decorate(block) {
   const persistedquery = '/graphql/execute.json/aem-demo-assets/native-app-adventure';
   // const offerpath = '/content/dam/aem-demo-assets/en/adventures/bali-surf-camp/bali-surf-camp';
   const variationname = 'main';
+  const root = block.querySelector(':scope div:nth-child(1) > div');
   const url = block.querySelector(':scope div:nth-child(1) > div').innerHTML.trim();
   //const offerpath = block.querySelector(':scope div:nth-child(1) > div').innerHTML.trim();
   // const offerpath = block.querySelector(':scope div:nth-child(1) > div a').innerHTML.trim();
@@ -16,7 +17,8 @@ export default async function decorate(block) {
     : `${aempublishurl}${persistedquery};apath=${offerpath};variation=${variationname};ts=${Math.random() * 1000}`;
   const options = { credentials: 'include' };
 */
-  console.log(url);
+console.log(root);
+console.log(url);;
 
   const cfReq = await fetch(url)
     .then((response) => response.json())
